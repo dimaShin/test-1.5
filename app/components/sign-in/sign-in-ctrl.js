@@ -1,10 +1,12 @@
 import angular from 'angular';
 
 export const controller = 'SignInCtrl';
+export const controllerAs = 'ctrl';
 
 class SignInCtrl {
-  constructor() {
+  constructor(noty) {
     'ngInject';
+    this.noty = noty;
     this.data = {
       email: '',
       password: ''
@@ -13,6 +15,7 @@ class SignInCtrl {
 
   sendData($event) {
     $event.preventDefault();
+    this.noty.show('error', {});
   }
 }
 

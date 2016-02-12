@@ -43,7 +43,9 @@ module.exports = {
       { test: /\.css$/, loader: ExtractTextPlugin.extract('style', 'css') },
       { test: /\.woff2?(.*)?$/, loader: 'file?name=fonts/[name].[ext]' },
       { test: /\.(ttf|eot|svg)(.*)?$/, loader: 'file?name=fonts/[name].[ext]' },
-      { test: /\.(png|woff|woff2|eot|ttf|svg)$/, loader: 'url-loader?limit=100000' }
+      { test: /\.(png|woff|woff2|eot|ttf|svg)$/, loader: 'url-loader?limit=100000' },
+      { test: /[\\\/]modernizr\.custom\.js$/,
+            loader: "imports?this=>window,html5=>window.html5!exports?window.Modernizr" }
     ]
   },
   resolve: {
